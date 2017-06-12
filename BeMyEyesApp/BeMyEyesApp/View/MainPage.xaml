@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BeMyEyesApp"
+             x:Class="BeMyEyesApp.MainPage"
+             BackgroundColor="#2c3e50">
+
+    <Button x:Name="OpenCameraView"
+            Margin="30"
+            BackgroundColor="#1abc9c"
+            BorderColor="Transparent"
+            BorderWidth="0"
+            Text="Seja&#x0a;Meus&#x0a;Olhos"
+            TextColor="WhiteSmoke"
+            FontAttributes="Bold"
+            FontSize="50"
+            Clicked="OpenCameraView_Clicked"/>
+
+</ContentPage>
