@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using Plugin.Media.Abstractions;
 using BeMyEyesApp.Service;
+using BeMyEyesApp.View;
 
 namespace BeMyEyesApp
 {
@@ -15,18 +16,22 @@ namespace BeMyEyesApp
             InitializeComponent();
             OpenCameraView.FadeTo(0, 0);
             OpenCameraView.FadeTo(1, 2000);
+            Navigation.PushModalAsync(new DetailPage());
         }
 
         private async void OpenCameraView_Clicked(object sender, System.EventArgs e)
         {
             using (var imageFile = await TakePicture())
             {
-				CognitiveService.Instance.PlayAudio("Analizando Imagem");
+                if (imageFile != null)
+                {
+                    CognitiveService.Instance.PlayAudio("Analizando Imagem");
 
-				var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imageFile.Path);
-				var translatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
+                    var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imageFile.Path);
+                    var translatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
 
-				CognitiveService.Instance.PlayAudio(translatedDescription);
+                    CognitiveService.Instance.PlayAudio(translatedDescription);
+                }
             }
         }
 
