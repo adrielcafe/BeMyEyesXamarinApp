@@ -97,6 +97,7 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <Compile Include="WordWrapButtonRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -178,7 +179,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeMyEyesApp\BeMyEyesApp.csproj">
-      <Project>{39da86e5-b34d-46fd-8bc9-a36a9a52b75a}</Project>
+      <Project>{BD624A75-A39A-45FC-B632-06ADAB9C521C}</Project>
       <Name>BeMyEyesApp</Name>
     </ProjectReference>
   </ItemGroup>

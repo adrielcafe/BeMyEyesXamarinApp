@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Xamarin.Forms;
 using System;
+using System.Threading.Tasks;
 using Plugin.Media.Abstractions;
 using BeMyEyesApp.Service;
 
@@ -16,22 +17,30 @@ namespace BeMyEyesApp
             OpenCameraView.FadeTo(1, 2000);
         }
 
-        private void OpenCameraView_Clicked(object sender, System.EventArgs e)
+        private async void OpenCameraView_Clicked(object sender, System.EventArgs e)
         {
-            TakePicture();
+            using (var imageFile = await TakePicture())
+            {
+				CognitiveService.Instance.PlayAudio("Analizando Imagem");
+
+				var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imageFile.Path);
+				var translatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
+
+				CognitiveService.Instance.PlayAudio(translatedDescription);
+            }
         }
 
-        private async void TakePicture()
+        private async Task<MediaFile> TakePicture()
         {
             await CrossMedia.Current.Initialize();
 
             if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
             {
                 await DisplayAlert("Oops!", "Nenhuma câmera encontrada", "Fechar");
-                return;
+                return null;
             }
 
-            var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
+            var imageFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
             {
                 Name = "image.jpg",
                 PhotoSize = PhotoSize.Medium,
@@ -40,18 +49,7 @@ namespace BeMyEyesApp
                 SaveToAlbum = false
             });
 
-            if (file == null)
-                return;
-
-            CognitiveService.Instance.PlayAudioAsync("Analizando Imagem");
-
-            var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(file.Path);
-
-            file.Dispose();
-
-            var translatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
-
-            await CognitiveService.Instance.PlayAudioAsync(translatedDescription);
+            return imageFile;
         }
     }
 }

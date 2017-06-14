@@ -67,18 +67,12 @@ namespace BeMyEyesApp.Service
             return await TranslatorService.TranslateAsync(text, "pt");
         }
 
-        public async Task PlayAudioAsync(string text)
+        public void PlayAudio(string text)
         {
             if (AudioPlayerService == null)
             {
                 AudioPlayerService = CrossSimpleAudioPlayer.Current;
             }
-
-            /*
-            Stream audioStream = await TranslatorService.GetSpeechStreamAsync(text, "pt");
-            AudioPlayerService.Load(audioStream);
-            AudioPlayerService.Play();
-            */
 
             CrossTextToSpeech.Current.Speak(text);
         }
