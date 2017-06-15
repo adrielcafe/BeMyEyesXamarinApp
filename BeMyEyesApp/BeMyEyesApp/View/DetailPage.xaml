@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BeMyEyesApp"
              x:Class="BeMyEyesApp.DetailPage"
-             BackgroundColor="#1abc9c">
+             BackgroundColor="{StaticResource turquoise}">
 
     <AbsoluteLayout>
 
@@ -14,14 +14,14 @@
 
         <BoxView AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
                  AbsoluteLayout.LayoutFlags="All"
-                 Color="#1abc9c"
+                 Color="{StaticResource turquoise}"
                  Opacity="0.8"/>
 
         <ActivityIndicator x:Name="LoadingView"
                            AbsoluteLayout.LayoutBounds=".5, .5, 50, 50"
                            AbsoluteLayout.LayoutFlags="PositionProportional"
                            VerticalOptions="Center"
-                           Color="White" 
+                           Color="WhiteSmoke" 
                            IsRunning="true"/>
 
         <Label x:Name="DescriptionView"
@@ -30,7 +30,7 @@
                VerticalOptions="FillAndExpand"
                HorizontalTextAlignment="Center"
                Margin="20, 100"
-               TextColor="White"
+               TextColor="WhiteSmoke"
                FontSize="40"
                FontAttributes="Italic"
                LineBreakMode="WordWrap"
@@ -40,10 +40,10 @@
                 AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
                 AbsoluteLayout.LayoutFlags="All"
                 VerticalOptions="End"
-                BackgroundColor="#34495e"
+                BackgroundColor="{StaticResource wetAsphalt}"
                 Margin="10"
                 Text="&#x0a;Falar Novamente&#x0a;"
-                TextColor="White"
+                TextColor="WhiteSmoke"
                 FontSize="20"
                 FontAttributes="Bold"
                 Opacity="0"

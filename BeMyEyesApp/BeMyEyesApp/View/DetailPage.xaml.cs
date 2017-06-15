@@ -36,13 +36,13 @@ namespace BeMyEyesApp
             var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imagePath);
             TranslatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
 
+            FixTranslation();
             DescriptionView.Text = TranslatedDescription;
 
             await LoadingView.FadeTo(0, 500);
             await DescriptionView.FadeTo(1, 1000);
             await SpeakAgainView.FadeTo(1, 1000);
 
-            FixTranslation();
             SpeakDescriptionAsync();
         }
 

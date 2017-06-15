@@ -1,10 +1,4 @@
-﻿using BeMyEyesApp.Service;
-using Microsoft.ProjectOxford.Vision.Contract;
-
-using Xamarin.Forms;
-using System.Diagnostics;
-using System;
-using Newtonsoft.Json;
+﻿using Xamarin.Forms;
 
 namespace BeMyEyesApp
 {

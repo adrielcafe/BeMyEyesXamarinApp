@@ -11,7 +11,6 @@ namespace BeMyEyesApp
         public MainPage()
         {
             InitializeComponent();
-            TakePictureView.FadeTo(0, 0);
             TakePictureView.FadeTo(1, 1000);
         }
 

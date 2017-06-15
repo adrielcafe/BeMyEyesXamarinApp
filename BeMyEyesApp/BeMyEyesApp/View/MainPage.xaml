@@ -3,17 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BeMyEyesApp"
              x:Class="BeMyEyesApp.MainPage"
-             BackgroundColor="#34495e">
+             BackgroundColor="{StaticResource wetAsphalt}">
 
     <Button x:Name="TakePictureView"
             Margin="20"
-            BackgroundColor="#1abc9c"
+            BackgroundColor="{StaticResource turquoise}"
             BorderColor="Transparent"
             BorderWidth="0"
             Text="Seja&#x0a;Meus&#x0a;Olhos"
             TextColor="WhiteSmoke"
             FontAttributes="Bold"
             FontSize="50"
+            Opacity="0"
             Clicked="TakePictureView_Clicked"/>
 
 </ContentPage>
