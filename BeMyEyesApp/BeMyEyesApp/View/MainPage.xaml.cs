@@ -1,11 +1,8 @@
 ﻿using Plugin.Media;
-using System.Diagnostics;
 using Xamarin.Forms;
-using System;
 using System.Threading.Tasks;
 using Plugin.Media.Abstractions;
-using BeMyEyesApp.Service;
-using BeMyEyesApp.View;
+using System;
 
 namespace BeMyEyesApp
 {
@@ -14,23 +11,17 @@ namespace BeMyEyesApp
         public MainPage()
         {
             InitializeComponent();
-            OpenCameraView.FadeTo(0, 0);
-            OpenCameraView.FadeTo(1, 2000);
-            Navigation.PushModalAsync(new DetailPage());
+            TakePictureView.FadeTo(0, 0);
+            TakePictureView.FadeTo(1, 1000);
         }
 
-        private async void OpenCameraView_Clicked(object sender, System.EventArgs e)
+        private async void TakePictureView_Clicked(object sender, EventArgs e)
         {
             using (var imageFile = await TakePicture())
             {
                 if (imageFile != null)
                 {
-                    CognitiveService.Instance.PlayAudio("Analizando Imagem");
-
-                    var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imageFile.Path);
-                    var translatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
-
-                    CognitiveService.Instance.PlayAudio(translatedDescription);
+                    await Navigation.PushModalAsync(new DetailPage(imageFile.Path));
                 }
             }
         }

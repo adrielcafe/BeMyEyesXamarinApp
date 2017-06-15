@@ -2,14 +2,53 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BeMyEyesApp"
-             x:Class="BeMyEyesApp.View.DetailPage"
-             BackgroundColor="#2c3e50">
-    
-    <ContentPage.Content>
-        
-        <Image Aspect="AspectFit"
-               Source="http://wowslider.com/sliders/demo-22/data1/images/harrypotter975357.jpg"/>
-        
-    </ContentPage.Content>
-    
+             x:Class="BeMyEyesApp.DetailPage"
+             BackgroundColor="#1abc9c">
+
+    <AbsoluteLayout>
+
+        <Image x:Name="ImageView"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All"
+               Aspect="Fill"/>
+
+        <BoxView AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                 AbsoluteLayout.LayoutFlags="All"
+                 Color="#1abc9c"
+                 Opacity="0.8"/>
+
+        <ActivityIndicator x:Name="LoadingView"
+                           AbsoluteLayout.LayoutBounds=".5, .5, 50, 50"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           VerticalOptions="Center"
+                           Color="White" 
+                           IsRunning="true"/>
+
+        <Label x:Name="DescriptionView"
+               AbsoluteLayout.LayoutBounds=".5, .5, 1, 1"
+               AbsoluteLayout.LayoutFlags="All"
+               VerticalOptions="FillAndExpand"
+               HorizontalTextAlignment="Center"
+               Margin="20, 100"
+               TextColor="White"
+               FontSize="40"
+               FontAttributes="Italic"
+               LineBreakMode="WordWrap"
+               Opacity="0"/>
+
+        <Button x:Name="SpeakAgainView"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                VerticalOptions="End"
+                BackgroundColor="#34495e"
+                Margin="10"
+                Text="&#x0a;Falar Novamente&#x0a;"
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                Opacity="0"
+                Clicked="SpeakAgainView_Clicked"/>
+
+    </AbsoluteLayout>
+
 </ContentPage>

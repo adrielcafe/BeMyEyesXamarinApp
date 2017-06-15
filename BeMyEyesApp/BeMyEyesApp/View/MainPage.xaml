@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BeMyEyesApp"
              x:Class="BeMyEyesApp.MainPage"
-             BackgroundColor="#2c3e50">
+             BackgroundColor="#34495e">
 
-    <Button x:Name="OpenCameraView"
-            Margin="30"
+    <Button x:Name="TakePictureView"
+            Margin="20"
             BackgroundColor="#1abc9c"
             BorderColor="Transparent"
             BorderWidth="0"
@@ -14,6 +14,6 @@
             TextColor="WhiteSmoke"
             FontAttributes="Bold"
             FontSize="50"
-            Clicked="OpenCameraView_Clicked"/>
+            Clicked="TakePictureView_Clicked"/>
 
 </ContentPage>
