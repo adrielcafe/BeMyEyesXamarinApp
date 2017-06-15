@@ -1,7 +1,7 @@
 ![logo](https://raw.githubusercontent.com/adrielcafe/BeMyEyesXamarinApp/master/logo.png)
 
 # Be My Eyes (Seja Meus Olhos)
-> Xamarin app that describes photos to the visually impaired user.
+> Xamarin app that describes photos via audio to the visually impaired user.
 
 ![screens](https://raw.githubusercontent.com/adrielcafe/BeMyEyesXamarinApp/master/screenshots/0_screens.png)
 
