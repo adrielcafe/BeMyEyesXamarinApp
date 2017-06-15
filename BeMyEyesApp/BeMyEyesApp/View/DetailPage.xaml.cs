@@ -31,7 +31,7 @@ namespace BeMyEyesApp
 
         private async void AnalyzeImageAsync(string imagePath)
         {
-            CognitiveService.Instance.PlayAudio("Analizando Imagem");
+            CognitiveService.Instance.PlayAudio("Analizando foto");
 
             var imageDescription = await CognitiveService.Instance.AnalyzeImageAsync(imagePath);
             TranslatedDescription = await CognitiveService.Instance.TranslateTextAsync(imageDescription);
