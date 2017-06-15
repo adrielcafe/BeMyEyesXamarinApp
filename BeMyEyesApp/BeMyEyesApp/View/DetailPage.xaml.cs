@@ -1,5 +1,4 @@
 ﻿using BeMyEyesApp.Service;
-using Plugin.Media.Abstractions;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,7 +9,7 @@ namespace BeMyEyesApp
     public partial class DetailPage : ContentPage
     {
         private string TranslatedDescription { get; set; }
-
+        
         public DetailPage(string imagePath)
         {
             InitializeComponent();
